@@ -1,0 +1,58 @@
+<html>
+    <head>
+         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    </head>
+    <body>
+
+        <h1>My Card!</h1>
+        <img src="opp.jpg" id="mycardimg">
+        <br>
+        <h1 id="myscore">0</h1>
+        <hr>
+        <h1>Computer Card!</h1>
+        <img src="opp.jpg" id="computercardimg">
+        <h1 id="compscore">0</h1>
+        <br>
+        <h1>Who won??</h1>
+        
+        <button onclick="Draw()">Draw</button>
+      
+
+<script>
+
+    var myScore = 0
+    var computerScore = 0
+
+    var cards = ["2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png", "J.png", "Q.png", "K.png", "A.png"] // 13 cards. zero based so: 0-12
+
+    function Draw()
+    {
+        var myCard = Math.floor(Math.random() * 13)    // gives a random number between 0-12 
+        var computer = Math.floor(Math.random() * 13)  // gives a random  number between 0-12        
+
+        $("#mycardimg").attr("src", cards[myCard])
+        $("#computercardimg").attr("src", cards[computer])
+
+        if (myCard > computer)
+      {
+        // i won this round
+        //alert(`I won! ${cards[myCard]} ${cards[computer]}`)
+        myScore++;
+      }
+    else if (myCard < computer)
+      {
+        // computer won this round
+        //alert(`Computer won! ${cards[myCard]} ${cards[computer]}`)
+        computerScore++;
+      }
+
+      $("#myscore").text(myScore)
+      $("#compscore").text(computerScore)
+
+    }
+
+</script>
+
+    </body>
+
+</html>    
